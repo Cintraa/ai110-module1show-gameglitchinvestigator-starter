@@ -50,9 +50,17 @@ Claude wrote a play trace using secret 50, but my real secret was 40, so I rejec
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+
+I decided the bug was fixed only when its pytest case passed and replaying my Phase 1 inputs no longer reproduced it.
+
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+
+test_numeric_not_text_comparison checks that a guess of 9 against a secret of 50 returns "Too Low"; the old string comparison ("9" > "50") would fail it, and it passes now.
+
 - Did AI help you design or understand any tests? How?
+
+Claude Code wrote the new tests from my bug table, and I updated the starter tests to unpack check_guess's (outcome, message) tuple.
 
 ---
 
